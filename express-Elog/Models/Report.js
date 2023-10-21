@@ -16,7 +16,7 @@ const reportSchema = new Schema(
 
     photo: {
       type: String,
-      required: true,
+      required: false,
     },
 
     username: {
@@ -30,7 +30,7 @@ const reportSchema = new Schema(
     },
     createdAt: {
       type: Date,
-      default: new Date().toISOString,
+      default: new Date().toLocaleString("en-GB", { timeZone: "UTC" }),
     },
   },
   { timestamps: true }

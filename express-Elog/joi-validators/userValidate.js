@@ -1,9 +1,8 @@
-const { JSONCookie } = require("cookie-parser");
 const Joi = require("joi");
 
 const validators = {
   registerValidator: Joi.object({
-    username: Joi.string().min(3).max(30).trim().label("Username").required(),
+    username: Joi.string().min(3).max(30).trim().label("User name").required(),
     email: Joi.string()
       .trim()
       .email({ minDomainSegments: 2, tlds: { allow: ["com", "net"] } }) //to check the domain segment and the top-level domain for the com and net.

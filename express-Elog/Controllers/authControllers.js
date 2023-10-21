@@ -26,7 +26,7 @@ const login = async (req, res) => {
   let user = null;
 
   try {
-    user = await userModel.find({ email: validatedUser.email });
+    user = await userModel.findOne({ email: validatedUser.email });
     console.log(user);
     if (!user) {
       return res.status(401).json({ message: errorMsg });
@@ -36,7 +36,7 @@ const login = async (req, res) => {
   }
   const auth = await bcrypt.compare(validatedUser.password, user.password);
   if (!auth) {
-    return res.json({ message: errorMsg });
+    return res.status(401).json({ message: errorMsg });
   }
 
   const token = createSecretToken(user._id);
@@ -53,9 +53,12 @@ const login = async (req, res) => {
 const register = async (req, res) => {
   let errorObject = {};
   //check the input of user schema.
-  const userValidatorResults = userValidator.loginValidator.validate(req.body, {
-    abortEarly: false,
-  });
+  const userValidatorResults = userValidator.registerValidator.validate(
+    req.body,
+    {
+      abortEarly: false,
+    }
+  );
   if (userValidatorResults.error) {
     //return the details of the error in json
     const validationError = userValidatorResults.error.details;
@@ -63,16 +66,17 @@ const register = async (req, res) => {
     validationError.forEach((error) => {
       errorObject[error.context.key] = error.message;
     });
+    console.log(errorObject);
     return res.status(400).json(errorObject);
   }
-
+  // check the user exists or not in the database.
   let validatedUser = userValidatorResults;
 
   try {
     validatedUser = await userModel.findOne({
       email: validatedUser.value.email,
     });
-    console.log(user);
+    console.log(validatedUser);
     if (validatedUser) {
       return res.status(409).json({ message: "User exists" });
     }

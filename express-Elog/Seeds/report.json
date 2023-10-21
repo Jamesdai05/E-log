@@ -1,0 +1,34 @@
+[
+  {
+    "title": "Engineering Report 1",
+    "content": "This is a testing report for the equipment XYZ.Base on the requirement, the equipment goes through all the tests and the requirements are met.",
+    "image": "https://digital.library.unt.edu/ark:/67531/metadc677924/m1/34/high_res/",
+    "username": "Jane Soh",
+    "category": "Equipment",
+    "createdAt": "11/09/2021"
+  },
+  {
+    "title": "Engineering Report 2",
+    "content": "This is a testing report for the equipment XYZ.Base on the current requirements, the equipment goes through all the electrical tests and the requirements are met.Now it's pending for last one test!",
+    "image": "https://digital.library.unt.edu/ark:/67531/metadc677924/m1/34/high_res/",
+    "username": "Jame Dai",
+    "category": "Equipment",
+    "createdAt": "11/10/2023"
+  },
+  {
+    "title": "Engineering Report 3",
+    "content": "Here is the metrollogy report for the equipment ABC.Base on the current requirements, the equipment goes through all the electrical tests and the requirements are met.In conclusion, the results of FAT are pass!",
+    "image": "https://digital.library.unt.edu/ark:/67531/metadc677924/m1/34/high_res/",
+    "username": "Jame Dai",
+    "category": "Equipment",
+    "createdAt": "11/09/2023"
+  },
+  {
+    "title": "Engineering Report 5",
+    "content": "Here is the metrollogy report for the equipment ABC.Base on the current requirements, the equipment goes through all the electrical tests and the requirements are met.In conclusion, the results of FAT are pass!",
+    "image": "https://www.lvs-qms.co.uk/wp-content/uploads/2017/07/SURFACE-CONDITION-EXAMPLE-1024x716.jpg",
+    "username": "Jame Dai",
+    "category": "Metrology",
+    "createdAt": "11/03/2023"
+  }
+]
