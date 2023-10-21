@@ -49,6 +49,51 @@ const login = async (req, res) => {
   });
 };
 
+//Register controller
+const register = async (req, res) => {
+  let errorObject = {};
+  //check the input of user schema.
+  const userValidatorResults = userValidator.loginValidator.validate(req.body, {
+    abortEarly: false,
+  });
+  if (userValidatorResults.error) {
+    //return the details of the error in json
+    const validationError = userValidatorResults.error.details;
+
+    validationError.forEach((error) => {
+      errorObject[error.context.key] = error.message;
+    });
+    return res.status(400).json(errorObject);
+  }
+
+  let validatedUser = userValidatorResults;
+
+  try {
+    validatedUser = await userModel.findOne({
+      email: validatedUser.value.email,
+    });
+    console.log(user);
+    if (validatedUser) {
+      return res.status(409).json({ message: "User exists" });
+    }
+  } catch (err) {
+    console.log(err);
+    return res.status(500).json({ message: "Fail to get user!" });
+  }
+
+  const passHash = await bcrypt.hash(req.body.password, 10);
+  const user = { ...req.body, password: passHash };
+
+  try {
+    await userModel.create(user);
+    return res.status(201).json({ message: "User created!" });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ message: "failed to created user!" });
+  }
+};
+
 module.exports = {
   login,
+  register,
 };
