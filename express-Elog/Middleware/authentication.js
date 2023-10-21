@@ -7,8 +7,8 @@ function isUserAuthenticated(req, res, next) {
   // Get the token from the request headers
   const token =
     req.header("Authorization") && req.header("Authorization").split(" ")[1];
-  // check the token type and get the token for verification
 
+  //check token type and verification
   // Check if the token is missing
   if (!token) {
     return res.status(401).json({ message: "Unauthorized: Token missing" });

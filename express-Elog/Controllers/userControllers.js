@@ -26,6 +26,19 @@ const getSingleUser = async (req, res) => {
   }
 };
 
+const showUser = async (req, res) => {
+  const id = req.params.id;
+  validateMongodbId(id);
+  try {
+    const userProfile = await userModel.findById(id);
+    const { password, ...others } = userProfile._doc;
+
+    res.status(200).json(others);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+};
+
 const deleteUser = async (req, res) => {
   let id = req.params.id;
   // check the id whether is valid in the mongodb.
@@ -43,4 +56,5 @@ module.exports = {
   fetchAllUsers,
   deleteUser,
   getSingleUser,
+  showUser,
 };
