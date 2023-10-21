@@ -11,6 +11,8 @@ const postRouter = require("./routes/postRoutes");
 const userRouter = require("./routes/userRoutes");
 const authRouter = require("./routes/authRouters");
 
+require("dotenv").config();
+
 var app = express();
 
 // view engine setup
