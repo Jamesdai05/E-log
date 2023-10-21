@@ -23,7 +23,7 @@ const validators = {
       .email({ minDomainSegments: 2, tlds: { allow: ["com", "net"] } })
       .label("Email")
       .required(),
-    password: Joi.string().min(4).label("Password").required(),
+    password: Joi.string().min(8).label("Password").required(),
   }),
 };
 
