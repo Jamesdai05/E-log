@@ -1,9 +1,9 @@
 var express = require("express");
 var router = express.Router();
 
-/* GET users listing. */
+/* GET home page. */
 router.get("/", function (req, res, next) {
-  res.send("<h2>This is a testing route.respond with a resource</h2>");
+  res.send("Post Routes");
 });
 
 module.exports = router;
