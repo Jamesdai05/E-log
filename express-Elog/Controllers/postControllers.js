@@ -10,8 +10,13 @@ const fetchAllReports = async (req, res) => {
   }
 };
 
-const createReport = (req, res) => {
-  res.send("created!");
+const createReport = async (req, res) => {
+  try {
+    const post = await reportModel.create(req.body);
+    res.status(201).json(post);
+  } catch (err) {
+    res.status(500).json(err);
+  }
 };
 
 module.exports = {
