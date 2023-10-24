@@ -19,6 +19,12 @@ const reportSchema = new Schema(
       required: false,
     },
 
+    // userId: {
+    //   type: mongoose.Types.ObjectId,
+    //   ref: "User",
+    //   required: true,
+    // },
+
     username: {
       type: String,
       required: true,
