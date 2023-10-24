@@ -9,11 +9,11 @@ const validators = {
       .label("Email")
       .required(),
     password: Joi.string().min(8).label("Password").required(),
-    //   confirmPassword: Joi.string()
-    //     .equal(Joi.ref("password"))
-    //     .required()
-    //     .label("Confirm password")
-    //     .messages({ "any.only": "{{#label}} does not match" }),
+    confirmPassword: Joi.string()
+      .equal(Joi.ref("password"))
+      .required()
+      .label("Confirm password")
+      .messages({ "any.only": "{{#label}} does not match" }),
   }),
 
   loginValidator: Joi.object({
