@@ -66,7 +66,7 @@ const register = async (req, res) => {
     validationError.forEach((error) => {
       errorObject[error.context.key] = error.message;
     });
-    console.log(errorObject);
+    // console.log(errorObject);
     return res.status(400).json(errorObject);
   }
   // check the user exists or not in the database.
