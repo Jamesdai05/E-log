@@ -23,7 +23,7 @@ const login = async (req, res) => {
 
   const validatedUser = req.body;
   let errorMsg = "Incorrect password or email";
-  let user = null;
+  let user;
 
   try {
     user = await userModel.findOne({ email: validatedUser.email });
@@ -46,6 +46,7 @@ const login = async (req, res) => {
     success: true,
     token,
     user: user._id,
+    name: user.username,
   });
 };
 
@@ -76,7 +77,7 @@ const register = async (req, res) => {
     validatedUser = await userModel.findOne({
       email: validatedUser.value.email,
     });
-    console.log(validatedUser);
+    // console.log(validatedUser);
     if (validatedUser) {
       return res.status(409).json({ message: "User exists" });
     }
