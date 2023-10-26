@@ -19,15 +19,15 @@ const reportSchema = new Schema(
       required: false,
     },
 
-    userId: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "User",
-    },
-
-    // username: {
-    //   type: String,
-    //   required: false,
+    // userId: {
+    //   type: mongoose.Schema.Types.ObjectId,
+    //   ref: "User",
     // },
+
+    username: {
+      type: String,
+      required: false,
+    },
 
     categories: {
       type: Array,
@@ -36,7 +36,7 @@ const reportSchema = new Schema(
     },
     createdAt: {
       type: Date,
-      default: new Date().toLocaleString("en-GB", { timeZone: "UTC" }),
+      default: new Date(),
     },
   },
   { timestamps: true }

@@ -11,11 +11,11 @@ const fetchAllReports = async (req, res) => {
 };
 
 const createReport = async (req, res) => {
+  const report = new reportModel(req.body);
   try {
-    const report = await reportModel.create(req.body);
+    // await report.save();
     await report.save();
-    res.status(201).json(report);
-    console.log(report);
+    return res.status(201).json(report);
   } catch (err) {
     res.status(500).json(err);
   }
@@ -23,33 +23,54 @@ const createReport = async (req, res) => {
 
 // const
 
-// const updateReport = async (req, res) => {
-//   const id = req.params.id;
-//   try {
-//     const report = await reportModel.findById(id);
-//     if (report.username === req.body.username) {
-//       try {
-//         const updatedReport = await reportModel.findByIdAndUpdate(
-//           id,
-//           {
-//             $set: req.body,
-//           },
-//           { new: true }
-//         );
-//         res.status(201).json(updatedReport);
-//       } catch (err) {
-//         res.status(500).json(err);
-//       }
-//     } else {
-//       res.status(401).json("You can only update your own posts!");
-//     }
-//   } catch (e) {
-//     res.status(500).json(e);
-//   }
-// };
+const updateReport = async (req, res) => {
+  const id = req.params.id;
+  try {
+    const report = await reportModel.findById(id);
+    if (report.username === req.body.username) {
+      try {
+        const updatedReport = await reportModel.findByIdAndUpdate(
+          id,
+          {
+            $set: req.body,
+          },
+          { new: true }
+        );
+        res.status(201).json(updatedReport);
+      } catch (err) {
+        res.status(500).json(err);
+      }
+    } else {
+      res.status(401).json("You can only update your own posts!");
+    }
+  } catch (e) {
+    res.status(500).json(e);
+  }
+};
+
+//delete the post
+const deleteReport = async(req,res)=>{
+  const id = req.params.id;
+  try{
+    const report = await reportModel.findById(id);
+    if(report.username === req.body.username){
+      try{
+        await report.delete();
+        res.status(200).json({message:"Post has been deleted!"})
+      }catch(err){
+        res.status(500).json(err)
+      }
+    }else{
+      res.status(401).json({message:"You only can delete your post!"})
+      }
+  }catch(err){
+    console.log(err);
+    res..status(500).json(err)
+  }
+}
 
 module.exports = {
   fetchAllReports,
   createReport,
-  // updateReport,
+  updateReport,
 };
