@@ -9,7 +9,7 @@ const reportSchema = new Schema(
       required: true,
     },
 
-    content: {
+    description: {
       type: String,
       required: true,
     },
@@ -27,12 +27,13 @@ const reportSchema = new Schema(
 
     username: {
       type: String,
-      required: true,
+      required: false,
     },
 
     categories: {
       type: Array,
       required: false,
+      default: "Equipment",
     },
     createdAt: {
       type: Date,

@@ -20,33 +20,35 @@ const createReport = async (req, res) => {
   }
 };
 
-const updateReport = async (req, res) => {
-  const id = req.params.id;
-  try {
-    const report = await reportModel.findById(id);
-    if (report.username === req.body.username) {
-      try {
-        const updatedReport = await reportModel.findByIdAndUpdate(
-          id,
-          {
-            $set: req.body,
-          },
-          { new: true }
-        );
-        res.status(201).json(updatedReport);
-      } catch (err) {
-        res.status(500).json(err);
-      }
-    } else {
-      res.status(401).json("You can only update your own posts!");
-    }
-  } catch (e) {
-    res.status(500).json(e);
-  }
-};
+const
+
+// const updateReport = async (req, res) => {
+//   const id = req.params.id;
+//   try {
+//     const report = await reportModel.findById(id);
+//     if (report.username === req.body.username) {
+//       try {
+//         const updatedReport = await reportModel.findByIdAndUpdate(
+//           id,
+//           {
+//             $set: req.body,
+//           },
+//           { new: true }
+//         );
+//         res.status(201).json(updatedReport);
+//       } catch (err) {
+//         res.status(500).json(err);
+//       }
+//     } else {
+//       res.status(401).json("You can only update your own posts!");
+//     }
+//   } catch (e) {
+//     res.status(500).json(e);
+//   }
+// };
 
 module.exports = {
   fetchAllReports,
   createReport,
-  updateReport,
+  // updateReport,
 };

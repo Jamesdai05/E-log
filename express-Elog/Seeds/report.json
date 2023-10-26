@@ -1,7 +1,7 @@
 [
   {
     "title": "Engineering Report 1",
-    "content": "This is a testing report for the equipment XYZ.Base on the requirement, the equipment goes through all the tests and the requirements are met.",
+    "description": "This is a testing report for the equipment XYZ.Base on the requirement, the equipment goes through all the tests and the requirements are met.",
     "image": "https://digital.library.unt.edu/ark:/67531/metadc677924/m1/34/high_res/",
     "username": "Jane Soh",
     "category": "Equipment",
@@ -9,7 +9,7 @@
   },
   {
     "title": "Engineering Report 2",
-    "content": "This is a testing report for the equipment XYZ.Base on the current requirements, the equipment goes through all the electrical tests and the requirements are met.Now it's pending for last one test!",
+    "description": "This is a testing report for the equipment XYZ.Base on the current requirements, the equipment goes through all the electrical tests and the requirements are met.Now it's pending for last one test!",
     "image": "https://digital.library.unt.edu/ark:/67531/metadc677924/m1/34/high_res/",
     "username": "James Dai",
     "category": "Equipment",
@@ -17,7 +17,7 @@
   },
   {
     "title": "Engineering Report 3",
-    "content": "Here is the report for the equipment ABC.Base on the current requirements, the equipment goes through all the electrical tests and the requirements are met.In conclusion, the results of FAT are pass!",
+    "description": "Here is the report for the equipment ABC.Base on the current requirements, the equipment goes through all the electrical tests and the requirements are met.In conclusion, the results of FAT are pass!",
     "image": "https://knowledge.faro.com/@api/deki/files/15827/AS9102Report_Form3.png?revision=1",
     "username": "James Dai",
     "category": "Equipment",
@@ -25,7 +25,7 @@
   },
   {
     "title": "Engineering Report 4",
-    "content": "Here is the metrollogy report for the equipment ABC.Base on the current requirements, the equipment goes through all the electrical tests and the requirements are met.In conclusion, the results of FAT are pass!",
+    "description": "Here is the metrollogy report for the equipment ABC.Base on the current requirements, the equipment goes through all the electrical tests and the requirements are met.In conclusion, the results of FAT are pass!",
     "image": "https://knowledge.faro.com/@api/deki/files/15827/AS9102Report_Form3.png?revision=1",
     "username": "James Dai",
     "category": "Metrology",
@@ -33,7 +33,7 @@
   },
   {
     "title": "Engineering Report 5",
-    "content": "Here is the metrollogy report for the equipment ABC.Base on the current requirements, the equipment goes through all the electrical tests and the requirements are met.In conclusion, the results of FAT are pass!",
+    "description": "Here is the metrollogy report for the equipment ABC.Base on the current requirements, the equipment goes through all the electrical tests and the requirements are met.In conclusion, the results of FAT are pass!",
     "image": "https://www.lvs-qms.co.uk/wp-content/uploads/2017/07/SURFACE-CONDITION-EXAMPLE-1024x716.jpg",
     "username": "James Dai",
     "category": "Metrology",
