@@ -20,7 +20,7 @@ const createReport = async (req, res) => {
   }
 };
 
-const
+// const
 
 // const updateReport = async (req, res) => {
 //   const id = req.params.id;
