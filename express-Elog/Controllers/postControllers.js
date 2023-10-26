@@ -49,28 +49,40 @@ const updateReport = async (req, res) => {
 };
 
 //delete the post
-const deleteReport = async(req,res)=>{
+const deleteReport = async (req, res) => {
   const id = req.params.id;
-  try{
+  try {
     const report = await reportModel.findById(id);
-    if(report.username === req.body.username){
-      try{
+    if (report.username === req.body.username) {
+      try {
         await report.delete();
-        res.status(200).json({message:"Post has been deleted!"})
-      }catch(err){
-        res.status(500).json(err)
+        res.status(200).json({ message: "Post has been deleted!" });
+      } catch (err) {
+        res.status(500).json(err);
       }
-    }else{
-      res.status(401).json({message:"You only can delete your post!"})
-      }
-  }catch(err){
+    } else {
+      res.status(401).json({ message: "You only can delete your post!" });
+    }
+  } catch (err) {
     console.log(err);
-    res..status(500).json(err)
+    res.status(500).json(err);
   }
-}
+};
+
+const getReport = async (req, res) => {
+  try {
+    const id = req.params.id;
+    const report = await reportModel.findById(id);
+    res.status(200).json(report);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+};
 
 module.exports = {
   fetchAllReports,
   createReport,
   updateReport,
+  deleteReport,
+  getReport,
 };
