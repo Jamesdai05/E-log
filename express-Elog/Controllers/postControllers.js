@@ -15,6 +15,7 @@ const createReport = async (req, res) => {
     const report = await reportModel.create(req.body);
     await report.save();
     res.status(201).json(report);
+    console.log(report);
   } catch (err) {
     res.status(500).json(err);
   }

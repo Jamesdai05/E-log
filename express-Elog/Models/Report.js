@@ -19,20 +19,19 @@ const reportSchema = new Schema(
       required: false,
     },
 
-    // userId: {
-    //   type: mongoose.Types.ObjectId,
-    //   ref: "User",
-    //   required: true,
-    // },
-
-    username: {
-      type: String,
-      required: false,
+    userId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
     },
+
+    // username: {
+    //   type: String,
+    //   required: false,
+    // },
 
     categories: {
       type: Array,
-      required: false,
+      required: true,
       default: "Equipment",
     },
     createdAt: {
