@@ -12,6 +12,8 @@ router.post("/", reportControllers.createReport);
 
 router.post("/", reportControllers.createReport);
 
+router.put("/:id", reportControllers.updateReport);
+
 router.delete("/:id",reportControllers.deleteReport)
 
 module.exports = router;

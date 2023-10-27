@@ -39,7 +39,7 @@ const updateReport = async (req, res) => {
   const id = req.params.id;
   validateMongodbId(id);
   try {
-    const report = await reportModel.findById(
+    const report = await reportModel.findByIdAndUpdate(
       id,
       {
         ...req.body,
@@ -47,10 +47,13 @@ const updateReport = async (req, res) => {
       },
       { new: true }
     );
+    // console.log("2")
     res.status(201).json(report);
   } catch (e) {
+    console.log(e)
     res.status(500).json(e);
   }
+//   res.json({message:"file update.."})
 };
 
 //delete the post
