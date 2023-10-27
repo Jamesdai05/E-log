@@ -1,4 +1,5 @@
 const reportModel = require("../Models/Report");
+const validateMongodbId = require("../util/validationOfMongoid");
 
 const fetchAllReports = async (req, res) => {
   try {
@@ -12,15 +13,15 @@ const fetchAllReports = async (req, res) => {
 
 const createReport = async (req, res) => {
   try {
-    console.log(req.body.user)
-    const id=req.body.user;
-    const report = await reportModel.create({...req.body,user:id});
+    console.log(req.body.user);
+    const id = req.body.user;
+    const report = await reportModel.create({ ...req.body, user: id });
     // console.log(report);
     // await report.save();
     return res.status(201).json(report);
   } catch (err) {
     res.status(500).json(err);
-    console.log(err)
+    console.log(err);
   }
 };
 
@@ -34,28 +35,19 @@ const createReport = async (req, res) => {
 //   }
 // };
 
-// const
-
 const updateReport = async (req, res) => {
   const id = req.params.id;
+  validateMongodbId(id);
   try {
-    const report = await reportModel.findById(id);
-    if (report.username === req.body.username) {
-      try {
-        const updatedReport = await reportModel.findByIdAndUpdate(
-          id,
-          {
-            $set: req.body,
-          },
-          { new: true }
-        );
-        res.status(201).json(updatedReport);
-      } catch (err) {
-        res.status(500).json(err);
-      }
-    } else {
-      res.status(401).json("You can only update your own posts!");
-    }
+    const report = await reportModel.findById(
+      id,
+      {
+        ...req.body,
+        user: req.user?._id,
+      },
+      { new: true }
+    );
+    res.status(201).json(report);
   } catch (e) {
     res.status(500).json(e);
   }
@@ -64,22 +56,16 @@ const updateReport = async (req, res) => {
 //delete the post
 const deleteReport = async (req, res) => {
   const id = req.params.id;
+  validateMongodbId(id);
   try {
-    const report = await reportModel.findById(id);
-    if (report.username === req.body.username) {
-      try {
-        await report.delete();
-        res.status(200).json({ message: "Post has been deleted!" });
-      } catch (err) {
-        res.status(500).json(err);
-      }
-    } else {
-      res.status(401).json({ message: "You only can delete your post!" });
-    }
+    const report = await reportModel.findByIdAndDelete(id);
+    res.status(200).json({message:"post deleted..."});
+    console.log(report);
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
   }
+  // res.send("Report deleted...");
 };
 
 const getReport = async (req, res) => {
