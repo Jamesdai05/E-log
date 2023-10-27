@@ -11,15 +11,28 @@ const fetchAllReports = async (req, res) => {
 };
 
 const createReport = async (req, res) => {
-  const report = new reportModel(req.body);
   try {
+    console.log(req.body.user)
+    const id=req.body.user;
+    const report = await reportModel.create({...req.body,user:id});
+    // console.log(report);
     // await report.save();
-    await report.save();
     return res.status(201).json(report);
   } catch (err) {
     res.status(500).json(err);
+    console.log(err)
   }
 };
+
+// const createReport = async (req, res) => {
+//   try {
+//     const report = await reportModel.create(req.body);
+//     await report.save();
+//     return res.status(201).json(report);
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// };
 
 // const
 

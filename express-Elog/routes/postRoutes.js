@@ -6,6 +6,8 @@ const authentication = require("../Middleware/authentication");
 /* GET home page. */
 router.get("/", reportControllers.fetchAllReports);
 
-router.post("/", authentication, reportControllers.createReport);
+// router.post("/", authentication, reportControllers.createReport);
+
+router.post("/", reportControllers.createReport);
 
 module.exports = router;

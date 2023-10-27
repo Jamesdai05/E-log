@@ -5,7 +5,7 @@ const reportSchema = new Schema(
   {
     title: {
       type: String,
-      unique: true,
+      // unique: true,
       required: true,
     },
 
@@ -19,19 +19,21 @@ const reportSchema = new Schema(
       required: false,
     },
 
-    // userId: {
-    //   type: mongoose.Schema.Types.ObjectId,
-    //   ref: "User",
-    // },
-
-    username: {
-      type: String,
-      required: false,
+    user: {
+      // type: String,
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      required:true,
     },
+
+    // username: {
+    //   type: String,
+    //   required: true,
+    // },
 
     categories: {
       type: Array,
-      required: true,
+      // required: true,
       default: "Equipment",
     },
     createdAt: {
