@@ -74,6 +74,7 @@ const deleteReport = async (req, res) => {
 const getReport = async (req, res) => {
   try {
     const id = req.params.id;
+    validateMongodbId(id);
     const report = await reportModel.findById(id);
     res.status(200).json(report);
   } catch (err) {
