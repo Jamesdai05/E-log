@@ -9,6 +9,8 @@ const reportSchema = new Schema(
       required: true,
     },
 
+    _id: { type: Schema.Types.ObjectId },
+
     description: {
       type: String,
       required: true,
@@ -23,7 +25,7 @@ const reportSchema = new Schema(
       // type: String,
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
-      required:true,
+      required: true,
     },
 
     // username: {

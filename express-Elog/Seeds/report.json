@@ -2,7 +2,7 @@
   {
     "title": "Engineering Report 1",
     "description": "This is a testing report for the equipment XYZ.Base on the requirement, the equipment goes through all the tests and the requirements are met.",
-    "image": "https://digital.library.unt.edu/ark:/67531/metadc677924/m1/34/high_res/",
+    "image": "https://images.pexels.com/photos/1029757/pexels-photo-1029757.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     "user": "6533a7b0f7249a0382b8d833",
     "category": "Equipment",
     "createdAt": "11/09/2021"
@@ -25,7 +25,7 @@
   },
   {
     "title": "Engineering Report 4",
-    "description": "Here is the metrollogy report for the equipment ABC.Base on the current requirements, the equipment goes through all the electrical tests and the requirements are met.In conclusion, the results of FAT are pass!",
+    "description": "Here is the metrology report for the equipment ABC.Base on the current requirements, the equipment goes through all the electrical tests and the requirements are met.In conclusion, the results of FAT are pass!",
     "image": "https://knowledge.faro.com/@api/deki/files/15827/AS9102Report_Form3.png?revision=1",
     "user": "6533eec4ae64dc4450cec99b",
     "category": "Metrology",
@@ -33,11 +33,50 @@
   },
   {
     "title": "Engineering Report 5",
-    "description": "Here is the metrollogy report for the equipment ABC.Base on the current requirements, the equipment goes through all the electrical tests and the requirements are met.In conclusion, the results of FAT are pass!",
+    "description": "Here is the metrology report for the equipment ABC.Base on the current requirements, the equipment goes through all the electrical tests and the requirements are met.In conclusion, the results of FAT are pass!",
     "image": "https://www.lvs-qms.co.uk/wp-content/uploads/2017/07/SURFACE-CONDITION-EXAMPLE-1024x716.jpg",
     "user": "6533a7b0f7249a0382b8d833",
     "category": "Metrology",
     "createdAt": "11/03/2023"
+  },
+  {
+    "title": "Engineering Report 6",
+    "description": "This is a testing report for the equipment XYZ.Base on the current requirements, the equipment goes through all the electrical tests and the requirements are met.Now it's pending for last one test!",
+    "image": "https://digital.library.unt.edu/ark:/67531/metadc677924/m1/34/high_res/",
+    "user": "653406a02c9e37221056b70c",
+    "category": "Equipment",
+    "createdAt": "11/10/2023"
+  },
+  {
+    "title": "Engineering Report 7",
+    "description": "Here is the report for the equipment ABC.Base on the current requirements, the equipment goes through all the electrical tests and the requirements are met.In conclusion, the results of FAT are pass!",
+    "image": "https://knowledge.faro.com/@api/deki/files/15827/AS9102Report_Form3.png?revision=1",
+    "user": "6533eec4ae64dc4450cec99b",
+    "category": "Equipment",
+    "createdAt": "11/09/2023"
+  },
+  {
+    "title": "Engineering Report 8",
+    "description": "Here is the FAT report for the equipment ABC.Base on the current requirements, the equipment goes through all the electrical tests and the requirements are met.In conclusion, the results of FAT are pass!",
+    "image": "https://knowledge.faro.com/@api/deki/files/15827/AS9102Report_Form3.png?revision=1",
+    "user": "6533eec4ae64dc4450cec99b",
+    "category": "FAT",
+    "createdAt": "11/09/2023"
+  },
+  {
+    "title": "Engineering Report 9",
+    "description": "Here is the metrology report for the equipment ABC.Base on the current requirements, the equipment goes through all the electrical tests and the requirements are met.In conclusion, the results of FAT are pass!",
+    "image": "https://www.lvs-qms.co.uk/wp-content/uploads/2017/07/SURFACE-CONDITION-EXAMPLE-1024x716.jpg",
+    "user": "6533a7b0f7249a0382b8d833",
+    "category": "Metrology",
+    "createdAt": "11/03/2023"
+  },
+  {
+    "title": "Engineering Report 10",
+    "description": "Here is the metrology report for the equipment ABC.Base on the current requirements, the equipment goes through all the electrical tests and the requirements are met.In conclusion, the results of FAT are pass!",
+    "image": "https://www.lvs-qms.co.uk/wp-content/uploads/2017/07/SURFACE-CONDITION-EXAMPLE-1024x716.jpg",
+    "user": "653406a02c9e37221056b70c",
+    "category": "Metrology",
+    "createdAt": "11/03/2023"
   }
 ]
-

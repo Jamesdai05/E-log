@@ -10,10 +10,12 @@ router.get("/", reportControllers.fetchAllReports);
 
 router.post("/", reportControllers.createReport);
 
-router.post("/", reportControllers.createReport);
+router.post("/", authentication, reportControllers.createReport);
 
-router.put("/:id", reportControllers.updateReport);
+router.put("/:id", authentication, reportControllers.updateReport);
 
-router.delete("/:id",reportControllers.deleteReport)
+router.delete("/:id", authentication, reportControllers.deleteReport);
+
+router.get("/:id", reportControllers.getReport);
 
 module.exports = router;

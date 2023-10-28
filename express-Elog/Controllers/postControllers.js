@@ -50,10 +50,10 @@ const updateReport = async (req, res) => {
     // console.log("2")
     res.status(201).json(report);
   } catch (e) {
-    console.log(e)
+    console.log(e);
     res.status(500).json(e);
   }
-//   res.json({message:"file update.."})
+  //   res.json({message:"file update.."})
 };
 
 //delete the post
@@ -62,7 +62,7 @@ const deleteReport = async (req, res) => {
   validateMongodbId(id);
   try {
     const report = await reportModel.findByIdAndDelete(id);
-    res.status(200).json({message:"post deleted..."});
+    res.status(200).json({ message: "post deleted..." });
     console.log(report);
   } catch (err) {
     console.log(err);
@@ -75,7 +75,14 @@ const getReport = async (req, res) => {
   try {
     const id = req.params.id;
     validateMongodbId(id);
+    console.log(id);
+    // const report = await reportModel.findById(id).populate("user");
+    // const report = await reportModel.findById(id);
+    console.log(typeof id);
     const report = await reportModel.findById(id);
+    // console.log(ObjectId.isValid(id));
+    console.log(report);
+    console.log("2");
     res.status(200).json(report);
   } catch (err) {
     res.status(500).json(err);
