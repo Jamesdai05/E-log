@@ -92,7 +92,7 @@ const getReport = async (req, res) => {
 module.exports = {
   fetchAllReports,
   createReport,
-  updateReport,
+  // updateReport,
   deleteReport,
   getReport,
 };

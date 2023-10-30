@@ -9,7 +9,7 @@ const reportSchema = new Schema(
       required: true,
     },
 
-    _id: { type: mongoose.Schema.Types.ObjectId },
+    // _id: { type: mongoose.Schema.Types.ObjectId },
 
     description: {
       type: String,
@@ -47,7 +47,9 @@ const reportSchema = new Schema(
     },
     createdAt: {
       type: Date,
-      default: new Date().toLocaleDateString("en-US"),
+      default: function () {
+        return new Date().toLocaleString();
+      },
     },
   },
   { timestamps: true }
