@@ -78,8 +78,8 @@ const getReport = async (req, res) => {
     console.log(id);
     // const report = await reportModel.findById(id).populate("user");
     // const report = await reportModel.findById(id);
-    console.log(typeof id);
-    const report = await reportModel.findById(id);
+    // console.log(typeof id);
+    const report = await reportModel.findById(id).populate("user");
     // console.log(ObjectId.isValid(id));
     console.log(report);
     console.log("2");

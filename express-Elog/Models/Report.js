@@ -9,7 +9,7 @@ const reportSchema = new Schema(
       required: true,
     },
 
-    _id: { type: Schema.Types.ObjectId },
+    _id: { type: mongoose.Schema.Types.ObjectId },
 
     description: {
       type: String,
@@ -29,6 +29,13 @@ const reportSchema = new Schema(
     },
 
     // username: {
+    //   // type: String,
+    //   type: mongoose.Schema.Types.ObjectId,
+    //   ref: "User",
+    //   required: false,
+    // },
+
+    // username: {
     //   type: String,
     //   required: true,
     // },
@@ -40,7 +47,7 @@ const reportSchema = new Schema(
     },
     createdAt: {
       type: Date,
-      default: new Date(),
+      default: new Date().toLocaleDateString("en-US"),
     },
   },
   { timestamps: true }

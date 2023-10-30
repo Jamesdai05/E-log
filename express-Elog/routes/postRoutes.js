@@ -12,7 +12,7 @@ router.post("/", reportControllers.createReport);
 
 router.post("/", authentication, reportControllers.createReport);
 
-router.put("/:id", authentication, reportControllers.updateReport);
+router.put("/:id", reportControllers.updateReport);
 
 router.delete("/:id", authentication, reportControllers.deleteReport);
 
