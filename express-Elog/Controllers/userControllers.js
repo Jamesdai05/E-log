@@ -52,10 +52,10 @@ const deleteUser = async (req, res) => {
   }
 };
 
-const profilePhotoUpload = async(req,res)=>{
+const profilePhotoUpload = async (req, res) => {
   console.log(req.file);
   res.send("uploaded..");
-}
+};
 
 module.exports = {
   fetchAllUsers,

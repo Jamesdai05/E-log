@@ -3,6 +3,8 @@ const router = express.Router();
 const usersControllers = require("../Controllers/userControllers");
 const user = require("../Models/User");
 const authentication = require("../Middleware/authentication");
+const { profilePhotoUpload } = require("../Middleware/uploads/profilePhotoUpload");
+
 
 router.get("/", authentication, usersControllers.fetchAllUsers);
 
@@ -10,11 +12,11 @@ router.delete("/:id", usersControllers.deleteUser);
 
 router.get("/:id", usersControllers.getSingleUser);
 
-router.get("/profile/:id", usersControllers.showUser);
+router.get("/profile/:id",usersControllers.showUser);
 
 router.put(
   "/profilephoto-upload",
-  // profilePhotoUpload.single("image"),
+  profilePhotoUpload.single("image"),
   // profilephotoResize,
   usersControllers.profilePhotoUpload
 );
