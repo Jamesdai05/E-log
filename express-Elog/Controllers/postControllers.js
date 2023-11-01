@@ -108,6 +108,16 @@ const imageUploadController = async (req, res) => {
   res.send({ imagePath: `/images/${result.Key}` });
 };
 
+
+const getImage = async(req,res)=>{
+  console.log(req.params)
+  const key = req.params.key
+  const readStream = getFileStream(key)
+
+  readStream.pipe(res)
+
+}
+
 module.exports = {
   fetchAllReports,
   createReport,
@@ -115,4 +125,5 @@ module.exports = {
   deleteReport,
   getReport,
   imageUploadController,
+  getImage
 };

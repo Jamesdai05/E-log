@@ -5,7 +5,6 @@ const authentication = require("../Middleware/authentication");
 const multer = require("multer");
 const upload = multer({ dest: "uploads/" });
 
-
 /* GET home page. */
 router.get("/", reportControllers.fetchAllReports);
 
@@ -25,6 +24,11 @@ router.delete("/:id", reportControllers.deleteReport);
 
 router.get("/:id", reportControllers.getReport);
 
+//getimage
+
+router.get("/imageupload/:key", reportControllers.getImage);
+
+//post image
 router.post(
   "/imageupload",
   upload.single("image"),
