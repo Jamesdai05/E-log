@@ -18,6 +18,7 @@ const createCategory = async (req, res) => {
       user: req.user._id,
       title: req.body.title,
     });
+    res.json(category);
   } catch (error) {
     res.status(code).json(error);
   }

@@ -18,7 +18,9 @@ const reportSchema = new Schema(
 
     photo: {
       type: String,
-      required: false,
+      // required: false,
+      default:
+        "https://www.pexels.com/photo/man-working-with-scheme-on-paper-at-table-5324968/",
     },
 
     user: {
