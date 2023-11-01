@@ -1,5 +1,6 @@
 const userModel = require("../Models/User");
 const validateMongodbId = require("../util/validationOfMongoid");
+const cloudinaryUploadImg = require("../util/cloudinary");
 
 const fetchAllUsers = async (req, res) => {
   try {
@@ -53,8 +54,14 @@ const deleteUser = async (req, res) => {
 };
 
 const profilePhotoUpload = async (req, res) => {
-  console.log(req.file);
-  res.send("uploaded..");
+  //1. get the path
+  const localPath = `public/images/user/${req.file.filename}`;
+  //2.Upload to cloudinary
+  const imgUploaded = await cloudinaryUploadImg(localPath);
+  console.log(imgUploaded);
+  res.json(localPath);
+  // console.log(req.file);
+  // res.send("uploaded..");
 };
 
 module.exports = {

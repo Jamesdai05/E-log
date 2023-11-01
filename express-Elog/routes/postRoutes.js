@@ -2,6 +2,9 @@ var express = require("express");
 var router = express.Router();
 const reportControllers = require("../Controllers/postControllers");
 const authentication = require("../Middleware/authentication");
+const multer = require("multer");
+const upload = multer({ dest: "uploads/" });
+
 
 /* GET home page. */
 router.get("/", reportControllers.fetchAllReports);
@@ -21,5 +24,11 @@ router.delete("/:id", reportControllers.deleteReport);
 // router.delete("/:id", authentication, reportControllers.deleteReport);
 
 router.get("/:id", reportControllers.getReport);
+
+router.post(
+  "/imageupload",
+  upload.single("image"),
+  reportControllers.imageUploadController
+);
 
 module.exports = router;

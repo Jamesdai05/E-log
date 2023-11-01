@@ -1,5 +1,12 @@
+const fs = require("fs");
+const util = require("util");
 const reportModel = require("../Models/Report");
 const validateMongodbId = require("../util/validationOfMongoid");
+const { uploadFile, getFileStream } = require("../s3");
+// const multer = require("multer");
+const unlinkFile = util.promisify(fs.unlink);
+// const upload = multer({ dest: "uploads/" });
+
 
 const fetchAllReports = async (req, res) => {
   try {
@@ -36,24 +43,24 @@ const createReport = async (req, res) => {
 // };
 
 const updateReport = async (req, res) => {
-  // const id = req.params.id;
-  // validateMongodbId(id);
-  // try {
-  //   const report = await reportModel.findByIdAndUpdate(
-  //     id,
-  //     {
-  //       ...req.body,
-  //       user: req.user?._id,
-  //     },
-  //     { new: true }
-  //   );
-  //   // console.log("2")
-  //   res.status(201).json(report);
-  // } catch (e) {
-  //   console.log(e);
-  //   res.status(500).json(e);
-  // }
-    res.json({message:"file update.."})
+  const id = req.params.id;
+  validateMongodbId(id);
+  try {
+    const report = await reportModel.findByIdAndUpdate(
+      id,
+      {
+        ...req.body,
+        user: req.user?._id,
+      },
+      { new: true }
+    );
+    // console.log("2")
+    res.status(201).json(report);
+  } catch (e) {
+    console.log(e);
+    res.status(500).json(e);
+  }
+  res.json({ message: "file update.." });
 };
 
 //delete the post
@@ -89,10 +96,23 @@ const getReport = async (req, res) => {
   }
 };
 
+//image upload controller
+const imageUploadController = async (req, res) => {
+  const file = req.file;
+  console.log(file);
+
+  const result = await uploadFile(file);
+  await unlinkFile(file.path);
+  console.log(result);
+  const description = req.body.description;
+  res.send({ imagePath: `/images/${result.Key}` });
+};
+
 module.exports = {
   fetchAllReports,
   createReport,
   updateReport,
   deleteReport,
   getReport,
+  imageUploadController,
 };

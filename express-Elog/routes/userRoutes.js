@@ -6,6 +6,7 @@ const authentication = require("../Middleware/authentication");
 const { profilePhotoUpload, profilePhotoResize } = require("../Middleware/uploads/profilePhotoUpload");
 
 
+
 router.get("/", authentication, usersControllers.fetchAllUsers);
 
 router.delete("/:id", usersControllers.deleteUser);
@@ -14,7 +15,7 @@ router.get("/:id", usersControllers.getSingleUser);
 
 router.get("/profile/:id",usersControllers.showUser);
 
-router.put(
+router.post(
   "/profilephoto-upload",
   profilePhotoUpload.single("image"),
   profilePhotoResize,
