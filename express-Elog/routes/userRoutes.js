@@ -14,9 +14,9 @@ router.get("/profile/:id", usersControllers.showUser);
 
 router.put(
   "/profilephoto-upload",
-  profilePhotoUpload.single("image"),
-  profilephotoResize,
-  usersControllers.profilePhotoUploadCtrl
+  // profilePhotoUpload.single("image"),
+  // profilephotoResize,
+  usersControllers.profilePhotoUpload
 );
 
 module.exports = router;

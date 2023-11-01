@@ -52,9 +52,14 @@ const deleteUser = async (req, res) => {
   }
 };
 
+const profilePhotoUpload = async(req,res)=>{
+  res.send("uploaded..");
+}
+
 module.exports = {
   fetchAllUsers,
   deleteUser,
   getSingleUser,
   showUser,
+  profilePhotoUpload,
 };
