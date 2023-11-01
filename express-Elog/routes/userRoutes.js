@@ -12,4 +12,11 @@ router.get("/:id", usersControllers.getSingleUser);
 
 router.get("/profile/:id", usersControllers.showUser);
 
+router.put(
+  "/profilephoto-upload",
+  profilePhotoUpload.single("image"),
+  profilephotoResize,
+  usersControllers.profilePhotoUploadCtrl
+);
+
 module.exports = router;

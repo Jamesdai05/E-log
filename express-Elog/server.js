@@ -11,6 +11,7 @@ var usersRouter = require("./routes/users");
 const postRouter = require("./routes/postRoutes");
 const userRouter = require("./routes/userRoutes");
 const authRouter = require("./routes/authRouters");
+const categoryRouter = require("./routes/categoryRouter")
 
 require("dotenv").config();
 require("./Seeds/seeds");
@@ -33,6 +34,7 @@ app.use("/users", usersRouter);
 app.use("/api/posts", postRouter);
 app.use("/auth", authRouter);
 app.use("/api/users", userRouter);
+app.use("/api/category", categoryRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
