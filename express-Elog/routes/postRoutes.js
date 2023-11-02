@@ -2,15 +2,20 @@ var express = require("express");
 var router = express.Router();
 const reportControllers = require("../Controllers/postControllers");
 const authentication = require("../Middleware/authentication");
+// const reportControllers =require("")
 const multer = require("multer");
-const upload = multer({ dest: "uploads/" });
+// const upload = multer({ dest: "uploads/" });
+const {
+  profilePhotoUpload,
+  postPhotoResize,
+} = require("../Middleware/uploads/profilePhotoUpload");
 
 /* GET home page. */
 router.get("/", reportControllers.fetchAllReports);
 
 // router.post("/", authentication, reportControllers.createReport);
 
-router.post("/", reportControllers.createReport);
+router.post("/", profilePhotoUpload.single("image"),postPhotoResize, reportControllers.createReport);
 
 // router.post("/", authentication, reportControllers.createReport);
 
@@ -34,5 +39,9 @@ router.get("/:id", reportControllers.getReport);
 //   upload.single("image"),
 //   reportControllers.imageUploadController
 // );
+
+
+
+
 
 module.exports = router;

@@ -31,4 +31,4 @@ const seedDB = async () => {
 //   console.log("Connection closed!");
 // };
 
-// seedDB();
+seedDB();

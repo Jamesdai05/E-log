@@ -6,6 +6,7 @@ const { uploadFile, getFileStream } = require("../s3");
 // const multer = require("multer");
 const unlinkFile = util.promisify(fs.unlink);
 // const upload = multer({ dest: "uploads/" });
+const cloudinaryUploadImg=require("../util/cloudinaryUploadImg")
 
 const fetchAllReports = async (req, res) => {
   try {
@@ -32,19 +33,19 @@ const createReport = async (req, res) => {
     //create post
 
     ////////////////////////////
+    console.log(req.file);
     const localPath = `public/images/post/${req.file.filename}`;
 
     const imgUploaded = await cloudinaryUploadImg(localPath);
     console.log(imgUploaded);
-    res.json(localPath);
+    // res.json(localPath);
 
-
-    // console.log(req.body.user);
-    // const id = req.body.user;
-    // const report = await reportModel.create({ ...req.body, user: id ,image:file});
-    // // console.log(report);
-    // // await report.save();
-    // return res.status(201).json(report);
+    console.log(req.body.user);
+    const id = req.body.user;
+    const report = await reportModel.create({ ...req.body, user: id ,photo:imgUploaded?.url});
+    // console.log(report);
+    // await report.save();
+    return res.status(201).json(report);
   } catch (err) {
     res.status(500).json(err);
     console.log(err);
@@ -138,13 +139,7 @@ const getReport = async (req, res) => {
 //   readStream.pipe(res);
 // };
 
-
 //using cloudinary
-
-
-
-
-
 
 module.exports = {
   fetchAllReports,
