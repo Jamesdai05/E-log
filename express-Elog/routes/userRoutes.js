@@ -15,7 +15,7 @@ router.get("/:id", usersControllers.getSingleUser);
 
 router.get("/profile/:id",usersControllers.showUser);
 
-router.post(
+router.put(
   "/profilephoto-upload",
   profilePhotoUpload.single("image"),
   profilePhotoResize,

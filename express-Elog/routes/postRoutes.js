@@ -26,13 +26,13 @@ router.get("/:id", reportControllers.getReport);
 
 //getimage
 
-router.get("/imageupload/:key", reportControllers.getImage);
+// router.get("/imageupload/:key", reportControllers.getImage);
 
 //post image
-router.post(
-  "/imageupload",
-  upload.single("image"),
-  reportControllers.imageUploadController
-);
+// router.post(
+//   "/imageupload",
+//   upload.single("image"),
+//   reportControllers.imageUploadController
+// );
 
 module.exports = router;

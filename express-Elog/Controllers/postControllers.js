@@ -7,7 +7,6 @@ const { uploadFile, getFileStream } = require("../s3");
 const unlinkFile = util.promisify(fs.unlink);
 // const upload = multer({ dest: "uploads/" });
 
-
 const fetchAllReports = async (req, res) => {
   try {
     const reports = await reportModel.find({});
@@ -20,9 +19,21 @@ const fetchAllReports = async (req, res) => {
 
 const createReport = async (req, res) => {
   try {
+    //file creating
+    // const file = req.file;
+    // console.log("teest123");
+    // console.log(req.body);
+    // console.log(file);
+    // const result = await uploadFile(file);
+    // await unlinkFile(file.path);
+    // console.log("11111 below is result")
+    // console.log(result);
+    // res.status(400).json(result);
+    //create post
+
     console.log(req.body.user);
     const id = req.body.user;
-    const report = await reportModel.create({ ...req.body, user: id });
+    const report = await reportModel.create({ ...req.body, user: id ,image:file});
     // console.log(report);
     // await report.save();
     return res.status(201).json(report);
@@ -97,26 +108,35 @@ const getReport = async (req, res) => {
 };
 
 //image upload controller
-const imageUploadController = async (req, res) => {
-  const file = req.file;
-  console.log(file);
+// const imageUploadController = async (req, res) => {
+//   const file = req.file;
+//   console.log("abcd body");
+//   console.log(req.body);
+//   console.log("12345 file");
+//   console.log(file);
+//   const result = await uploadFile(file);
+//   await unlinkFile(file.path);
+//   console.log(result);
+//   const description = req.body.description;
+//   // res.send({ imagePath: `/images/${result.Key}` });
+//   res.json(file);
+// };
 
-  const result = await uploadFile(file);
-  await unlinkFile(file.path);
-  console.log(result);
-  const description = req.body.description;
-  res.send({ imagePath: `/images/${result.Key}` });
-};
+// const getImage = async (req, res) => {
+//   console.log(req.params);
+//   const key = req.params.key;
+//   const readStream = getFileStream(key);
+
+//   readStream.pipe(res);
+// };
 
 
-const getImage = async(req,res)=>{
-  console.log(req.params)
-  const key = req.params.key
-  const readStream = getFileStream(key)
+//using cloudinary
 
-  readStream.pipe(res)
 
-}
+
+
+
 
 module.exports = {
   fetchAllReports,
@@ -124,6 +144,6 @@ module.exports = {
   updateReport,
   deleteReport,
   getReport,
-  imageUploadController,
-  getImage
+  // imageUploadController,
+  // getImage,
 };

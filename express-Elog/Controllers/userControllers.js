@@ -55,14 +55,15 @@ const deleteUser = async (req, res) => {
 
 const profilePhotoUpload = async (req, res) => {
   //1. get the path
-  const localPath = `public/images/user/${req.file.filename}`;
-  //2.Upload to cloudinary
-  const imgUploaded = await cloudinaryUploadImg(localPath);
-  console.log(imgUploaded);
-  res.json(localPath);
-  // console.log(req.file);
-  // res.send("uploaded..");
+  // const localPath = `public/images/user/${req.file.filename}`;
+  // //2.Upload to cloudinary
+  // const imgUploaded = await cloudinaryUploadImg(localPath);
+  // console.log(imgUploaded);
+  // res.json(localPath);
+  console.log(req.file);
+  res.send("uploaded..");
 };
+
 
 module.exports = {
   fetchAllUsers,
