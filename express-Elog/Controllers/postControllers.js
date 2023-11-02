@@ -31,12 +31,20 @@ const createReport = async (req, res) => {
     // res.status(400).json(result);
     //create post
 
-    console.log(req.body.user);
-    const id = req.body.user;
-    const report = await reportModel.create({ ...req.body, user: id ,image:file});
-    // console.log(report);
-    // await report.save();
-    return res.status(201).json(report);
+    ////////////////////////////
+    const localPath = `public/images/post/${req.file.filename}`;
+
+    const imgUploaded = await cloudinaryUploadImg(localPath);
+    console.log(imgUploaded);
+    res.json(localPath);
+
+
+    // console.log(req.body.user);
+    // const id = req.body.user;
+    // const report = await reportModel.create({ ...req.body, user: id ,image:file});
+    // // console.log(report);
+    // // await report.save();
+    // return res.status(201).json(report);
   } catch (err) {
     res.status(500).json(err);
     console.log(err);

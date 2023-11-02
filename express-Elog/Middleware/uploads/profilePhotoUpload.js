@@ -39,4 +39,18 @@ const profilePhotoResize = async (req, res, next) => {
     .toFile(path.join(`public/images/user/${req.file.filename}`));
   next();
 };
-module.exports = { profilePhotoUpload, profilePhotoResize };
+
+const postPhotoResize = async (req, res, next) => {
+  //check if there is no file
+  if (!req.file) return next();
+  req.file.filename = `user-${Date.now()}-${req.file.originalname}`;
+
+  await sharp(req.file.buffer)
+    .resize(400, 400)
+    .toFormat("jpeg")
+    .jpeg({ quality: 90 })
+    .toFile(path.join(`public/images/post/${req.file.filename}`));
+  next();
+};
+
+module.exports = { profilePhotoUpload, profilePhotoResize, postPhotoResize };
