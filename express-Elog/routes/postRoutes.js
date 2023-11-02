@@ -15,7 +15,7 @@ router.get("/", reportControllers.fetchAllReports);
 
 // router.post("/", authentication, reportControllers.createReport);
 
-router.post("/", profilePhotoUpload.single("image"),postPhotoResize, reportControllers.createReport);
+router.post("/", profilePhotoUpload.single("photo"),postPhotoResize, reportControllers.createReport);
 
 // router.post("/", authentication, reportControllers.createReport);
 

@@ -21,7 +21,7 @@ const fetchAllReports = async (req, res) => {
 const createReport = async (req, res) => {
   try {
     //file creating
-    // const file = req.file;
+    const file = req.file;
     // console.log("teest123");
     // console.log(req.body);
     // console.log(file);
@@ -38,9 +38,9 @@ const createReport = async (req, res) => {
 
     const imgUploaded = await cloudinaryUploadImg(localPath);
     console.log(imgUploaded);
-    // res.json(localPath);
 
-    console.log(req.body.user);
+
+    // console.log(req.body.user);
     const id = req.body.user;
     const report = await reportModel.create({ ...req.body, user: id ,photo:imgUploaded?.url});
     // console.log(report);
