@@ -18,4 +18,30 @@ The technologies applied in this project are as below:
 - MongoDB , Nodejs & Express.
 
 
+### Features
+
+- Login and sign up;
+- User with account is able to create the new report
+- Amend the report
+- Attached the files/pictures
+- Sort the report base on the title/categories
+
+features pending for development:
+
+- Sorting the documents by categories
+
+- Email messaging
+
+- Admin dashboard
+
+
+## Challenge faced
+
+- Image uploading function with the external server(cloudinary / AWS Console S3)
+
+- Redux Toolkit for state management(for manage the form submission).
+
+- Cloudingary image middleware.
+
+
 
