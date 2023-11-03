@@ -80,7 +80,7 @@ const updateReport = async (req, res) => {
     console.log(e);
     res.status(500).json(e);
   }
-  res.json({ message: "file update.." });
+  // res.json({ message: "file update.." });
 };
 
 //delete the post
