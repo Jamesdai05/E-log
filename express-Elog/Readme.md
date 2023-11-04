@@ -12,10 +12,9 @@ At the Same, it is also easier for the user and admin to trace the file with the
 The technologies applied in this project are as below:
 
 - React - Frontend development!
-- CSS , Style Component & React-Bootstrap
+- CSS , Styled-Component & React-Bootstrap
 - Redux Toolkit for state management
 - MongoDB , Nodejs & Express.
-
 
 ### Features
 
@@ -33,8 +32,7 @@ features pending for development:
 
 - Admin dashboard
 
-
-## Challenge faced
+### Challenge faced
 
 - Image uploading function with the external server(cloudinary / AWS Console S3)
 
@@ -42,5 +40,8 @@ features pending for development:
 
 - Cloudingary image middleware.
 
+### What I have learnt
 
-
+- React Frontend state management(API call)
+- React Toolkit state management
+- Deployment of frontend and backend.
