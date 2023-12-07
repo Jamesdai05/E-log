@@ -1,6 +1,6 @@
 # Capstone Project - Backend
 
-![Alt text](Mern-Stack.png)
+![Alt text](Mernstack.png)
 
 ## Introduction of the Project
 
