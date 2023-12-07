@@ -40,8 +40,9 @@ features pending for development:
 
 - Cloudingary image middleware.
 
+
 ### What I have learnt
 
 - React Frontend state management(API call)
 - React Toolkit state management
-- Deployment of frontend and backend.
+- Deployment of frontend and backend
